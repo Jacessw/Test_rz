@@ -1,0 +1,8 @@
+URL: http://wxdev2.vtoone.com/test_hr/module-operation!executeOperation?componentCode=vp_hr_login&windowCode=loginVBASE
+log:
+    file_name: test.log
+    backup: 5
+    console_level: WARNING
+    file_level: DEBUG
+    pattern: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
