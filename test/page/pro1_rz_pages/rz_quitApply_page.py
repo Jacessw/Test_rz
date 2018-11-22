@@ -18,10 +18,10 @@ class QuitApplyLocators(Page):
     quitOtherSuggestions = (By.XPATH, "//textarea[starts-with(@name,'otherSuggestions')]") #其他建议
     quitAdd_button = (By.XPATH,"//*[contains(text(),'新增')]") #新增按钮
     quitDeliver = (By.XPATH,"//table[@class='listTable' and @width='778']/tbody/tr/td[2]") #交接事项外部框
-    quitDeliver_1 = (By.XPATH,"//input[@type='TEXT'and @name='contentName']") #交接事项内嵌框
+    quitDeliver_IN = (By.XPATH,"//input[@type='TEXT'and @name='contentName']") #交接事项内嵌框
     quitDeliver_content = (By.XPATH,"//table[@class='listTable' and @width='778']/tbody/tr/td[3]") #具体交接内容外部框  #//input[starts-with(@id,'vp_hr_portal_myApply_web_JGImage6')] 查找id属性中开始位置包含'vp_hr_portal_myApply_web_JGImage6'关键字的页面元素
-    quitDeliver_content_1 = (By.XPATH, "//input[@type='TEXT'and @name='content']")  #具体交接内容内嵌框
-    quitSubmit_button = (By.XPATH, "//*[contains(text(),'保存并提交')]")  # 提交按钮
+    quitDeliver_content_IN = (By.XPATH, "//input[@type='TEXT'and @name='content']")  #具体交接内容内嵌框
+    quitSubmit_button = (By.XPATH, "//*[contains(text(),'暂存')]")  # 暂存按钮
 
 
     def enter_quitApply_button(self):
@@ -81,7 +81,7 @@ class QuitApplyLocators(Page):
         try:
             self.find_element(*self.quitDeliver).click()
             self.find_element(*self.quitDeliver).click()
-            self.find_element(*self.quitDeliver_1).send_keys(u'测试交接事项')
+            self.find_element(*self.quitDeliver_IN).send_keys(u'测试交接事项')
         except Exception as e:
             print('无法定位交接事项 %s' %e)
 
@@ -90,19 +90,19 @@ class QuitApplyLocators(Page):
         try:
             self.find_element(*self.quitDeliver_content).click()
             self.find_element(*self.quitDeliver_content).click()
-            self.find_element(*self.quitDeliver_content_1).send_keys(u'测试具体交接内容')
+            self.find_element(*self.quitDeliver_content_IN).send_keys(u'测试具体交接内容')
         except Exception as e:
             print('无法定位具体交接内容 %s' %e)
 
     def quitApply_Submit(self):
-        '''保存&提交按钮'''
+        '''暂存按钮'''
         try:
             self.find_element(*self.quitSubmit_button).click()
         except Exception as e:
-            print('无法定位提交按钮 %s' %e)
+            print('无法定位暂存按钮 %s' %e)
 
 if __name__ == '__main__':
-    URL = Config().get('URL1')
+    URL = Config().get('URL')
     page = RZLoginPage(browser_type='Chrome').get(URL, maximize_window=False)
     page.userlogin()
     result = QuitApplyLocators(page)

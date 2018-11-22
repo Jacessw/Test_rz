@@ -21,7 +21,7 @@ class RZLoginPage(Page):
         self.find_element(*self.loc_search_username).send_keys(username)
         self.find_element(*self.loc_search_password).send_keys(password)
         self.find_element(*self.loc_login_button).click()
-        time.sleep(1)
+        time.sleep(3)
 
     def result_name(self):
         '''
@@ -48,7 +48,7 @@ class RZLoginPage(Page):
         return login_text
 
 if __name__ == '__main__':
-        URL = Config().get('URL1')
+        URL = Config().get('URL')
         page = RZLoginPage(browser_type='Chrome').get(URL, maximize_window=False)
         page.userlogin()
         print(page.get_login_name())

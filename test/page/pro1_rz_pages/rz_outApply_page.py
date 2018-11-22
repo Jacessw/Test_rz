@@ -64,7 +64,7 @@ class OutApplyLocators(Page):
                 my_date = (datetime.now() + timedelta(days=x)).strftime("%Y-%m-%d")#timedelta(days)实例支持加减乘除操作
 
 if __name__ == '__main__':
-    URL = Config().get('URL1')
+    URL = Config().get('URL')
     page = RZLoginPage(browser_type='Chrome').get(URL, maximize_window=False)
     page.userlogin()
     result = OutApplyLocators(page)

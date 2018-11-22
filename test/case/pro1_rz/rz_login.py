@@ -8,7 +8,7 @@ from utils.log import logger
 
 
 class TestRenZi(unittest.TestCase):
-    URL = Config().get('URL1')
+    URL = Config().get('URL')
     excel = DATA_PATH + '/baidu.xlsx'
 
     def sub_setUp(self):
